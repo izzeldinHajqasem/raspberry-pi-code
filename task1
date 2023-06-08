@@ -1,1 +1,31 @@
+button = Button(2)
+ttime = 0 
+start =False
+
+def system_on():
+    servo.min()
+    sleep(0.5)
+    servo.max()
+    sleep(0.5)
+    
+while True:
+    if button.is_pressed:
+        start = True
+    while start == True:
+        
+        ttime +=1
+        print(ttime)
+        system_on()
+        if ttime >=30 :
+        #reset the time and stop the function after it reaches 30
+            ttime =0
+            start= False
+
+
+    if start != True:
+        #resest the servo to its natural position
+        servo.mid()
+
+
+    
 
