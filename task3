@@ -1,0 +1,16 @@
+from gpiozero import DistanceSensor
+from gpiozero import Buzzer
+ultrasonic=DistanceSensor(echo=21,trigger=20)
+buzzer=Buzzer(4)
+def turn_on():
+    buzzer.on()
+def turn_off():
+    buzzer.off()
+
+while True:
+    print (ultrasonic.distance*100)
+    if ultrasonic.distance*100 <=10:
+        turn_on()
+    else:
+        turn_off()
+    
