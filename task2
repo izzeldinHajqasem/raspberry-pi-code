@@ -1,0 +1,20 @@
+import RPi.GPIO as gpio
+from gpiozero import LED
+from time import sleep
+led=LED(20)
+pir_gpio= 21
+gpio.setmode(gpio.BCM)
+gpio.setup(pir_gpio, gpio.IN)
+def turn_on():
+    led.on()
+def turn_off():
+    led.off()
+while True:
+    print (gpio.input(pir_gpio))
+    if gpio.input(pir_gpio) == 1:
+        turn_on()
+        sleep(2)
+        turn_off()
+    else:
+        turn_off()
+        
